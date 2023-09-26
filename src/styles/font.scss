@@ -1,0 +1,16 @@
+@function fontUrl($file) {
+  @return "font/" + $file;
+}
+
+@mixin webfont($family, $file, $weight, $style) {
+  @font-face {
+    font-family: $family;
+    src: url(fontUrl($file + '.woff2')) format('woff2'),
+        url(fontUrl($file + '.woff')) format('woff');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@include webfont('Nunito', 'Nunito-Regular', normal, normal);
+@include webfont('Nunito', 'Nunito-Bold', bold, normal);
